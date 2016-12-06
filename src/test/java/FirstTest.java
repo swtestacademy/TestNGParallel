@@ -10,7 +10,7 @@ public class FirstTest extends TestBase {
     public void firstTest() throws Exception {
         System.out.println("First Test Started!");
         getDriver().navigate().to("http://www.yahoo.com");
-        System.out.println("Page title is: " + getDriver().getTitle());
+        System.out.println("First Test's Page title is: " + getDriver().getTitle());
         Assert.assertEquals("Yahoo", getDriver().getTitle());
         System.out.println("First Test Ended!");
     }
