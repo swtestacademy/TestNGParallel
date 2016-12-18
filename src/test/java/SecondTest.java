@@ -10,8 +10,9 @@ public class SecondTest extends TestBase{
     public void secondTest() throws Exception {
         System.out.println("Second Test Started!");
         getDriver().navigate().to("http://www.google.com");
+        waitForPageLoad();
         System.out.println("Second Test's Page title is: " + getDriver().getTitle());
-        Assert.assertEquals("Google", getDriver().getTitle());
+        Assert.assertEquals(getDriver().getTitle(), "Google");
         System.out.println("Second Test Ended!");
     }
 }
