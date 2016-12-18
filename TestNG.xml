@@ -9,7 +9,7 @@
         </classes>
     </test> <!-- First Test -->
     <test name="SecondTest">
-        <parameter name="browser" value="firefox"/>
+        <parameter name="browser" value="chrome"/>
         <parameter name="platform" value="WINDOWS"/>
         <classes>
             <class name="SecondTest"/>
