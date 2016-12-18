@@ -7,13 +7,13 @@ import org.testng.annotations.Test;
 public class FirstTest extends TestBase {
 
     @Test
-    public void firstTest() throws Exception {
-        System.out.println("First Test Started!");
+    public void YAHOO() throws Exception {
+        System.out.println("Yahoo Test Started!");
         getDriver().navigate().to("http://www.yahoo.com");
         waitForPageLoad();
-        System.out.println("First Test's Page title is: " + getDriver().getTitle());
+        System.out.println("Yahoo Test's Page title is: " + getDriver().getTitle());
         Assert.assertEquals(getDriver().getTitle(), "Yahoo");
-        System.out.println("First Test Ended!");
+        System.out.println("Yahoo Test Ended!");
     }
 
 }
