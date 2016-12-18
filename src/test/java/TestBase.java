@@ -22,7 +22,7 @@ public class TestBase {
     //Declare ThreadLocal Driver for ThreadSafe Tests
     //protected ThreadLocal<RemoteWebDriver> driver = null;
 
-    public static ThreadLocal<WebDriver> driver;
+    public ThreadLocal<WebDriver> driver;
 
     public void browserFactory (String browser, DesiredCapabilities caps) {
         if (browser.equals("firefox")) {
@@ -42,7 +42,6 @@ public class TestBase {
     public void setupTest (String browser, String platform) throws MalformedURLException {
         //Assign driver to a ThreadLocal
         //driver = new ThreadLocal<>();
-
 
         //Set DesiredCapabilities
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -67,7 +66,6 @@ public class TestBase {
     }
 
     public WebDriver getDriver() {
-
         return driver.get();
     }
 
