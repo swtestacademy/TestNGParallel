@@ -8,22 +8,22 @@ public class SecondTest extends TestBase{
 
     @Test
     public void GOOGLE() throws Exception {
-        System.out.println("Google Test Started!");
-        getDriver().navigate().to("http://www.google.com");
+        System.out.println("Google1 Test Started! " + Thread.currentThread().getId());
+        driver.navigate().to("http://www.google.com");
         waitForPageLoad();
-        System.out.println("Google Test's Page title is: " + getDriver().getTitle());
-        Assert.assertEquals(getDriver().getTitle(), "Google");
-        System.out.println("Google Test Ended!");
+        System.out.println("Google1 Test's Page title is: " + driver.getTitle() +" "+ Thread.currentThread().getId());
+        Assert.assertEquals(driver.getTitle(), "Google");
+        System.out.println("Google1 Test Ended! " + Thread.currentThread().getId());
     }
 
     @Test
     public void YANDEX() throws Exception {
-        System.out.println("Yandex Test Started!");
-        getDriver().navigate().to("http://www.yandex.com");
+        System.out.println("Yandex Test Started! " + Thread.currentThread().getId());
+        driver.navigate().to("http://www.yandex.com");
         waitForPageLoad();
-        System.out.println("Yandex Test's Page title is: " + getDriver().getTitle());
-        Assert.assertEquals(getDriver().getTitle(), "Yandex");
-        System.out.println("Yandex Test Ended!");
+        System.out.println("Yandex Test's Page title is: " + driver.getTitle() +" "+ Thread.currentThread().getId());
+        Assert.assertEquals(driver.getTitle(), "Yandex");
+        System.out.println("Yandex Test Ended! " + Thread.currentThread().getId());
     }
 
 }

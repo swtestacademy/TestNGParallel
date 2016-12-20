@@ -5,7 +5,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 /**
  * Created by onurb on 19-Dec-16.
  */
-public class DesiredCaps {
+public class DesiredCapsManager {
 
     public DesiredCapabilities getDesiredCapabilities (String browser, String platform) {
         //Set DesiredCapabilities

@@ -14,34 +14,35 @@ import java.net.MalformedURLException;
  */
 public class TestBase {
 
-    public ThreadLocal<WebDriver> tlDriver;
+    public WebDriver driver;
 
-    BrowserFactory browserFactory = new BrowserFactory();
-    DesiredCaps desiredCaps = new DesiredCaps();
+    private TLDriverFactory TLDriverFactory = new TLDriverFactory();
+    private DesiredCapsManager desiredCapsManager = new DesiredCapsManager();
 
     //Do the test setup
     @BeforeMethod
     @Parameters(value={"browser","platform"})
     public void setupTest (String browser, String platform) throws MalformedURLException {
         //Get DesiredCapabilities
-        DesiredCapabilities capabilities = desiredCaps.getDesiredCapabilities(browser,platform);
-        //Get ThreadLocal Driver with Browser
-        tlDriver = browserFactory.getBrowser(browser, capabilities,tlDriver);
+        DesiredCapabilities capabilities = desiredCapsManager.getDesiredCapabilities(browser,platform);
+        //Set & Get ThreadLocal Driver with Browser
+        TLDriverFactory.setTLDriver(browser, capabilities);
+        driver = TLDriverFactory.getTLDriver().get();
     }
 
-    public WebDriver getDriver() {
+/*    public WebDriver getWebDriver() {
         return tlDriver.get();
-    }
+    }*/
 
     @AfterMethod
     public void tearDown() throws Exception {
-        getDriver().quit();
+        driver.quit();
     }
 
     void waitForPageLoad () {
         ExpectedCondition pageLoads = driver1 -> (Boolean)((JavascriptExecutor) driver1).
                 executeScript("return document.readyState").equals("complete");
-        WebDriverWait wait = new WebDriverWait(getDriver(), 30);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(pageLoads);
     }
 
