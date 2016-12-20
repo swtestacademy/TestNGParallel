@@ -7,11 +7,21 @@ import org.testng.annotations.Test;
 public class SecondTest extends TestBase{
 
     @Test
-    public void secondTest() throws Exception {
-        System.out.println("Second Test Started!");
+    public void GOOGLE() throws Exception {
+        System.out.println("Google1 Test Started! " + Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
-        System.out.println("Second Test's Page title is: " + getDriver().getTitle());
-        Assert.assertEquals("Google", getDriver().getTitle());
-        System.out.println("Second Test Ended!");
+        System.out.println("Google1 Test's Page title is: " + getDriver().getTitle() +" "+ Thread.currentThread().getId());
+        Assert.assertEquals(getDriver().getTitle(), "Google");
+        System.out.println("Google1 Test Ended! " + Thread.currentThread().getId());
     }
+
+    @Test
+    public void YANDEX() throws Exception {
+        System.out.println("Yandex Test Started! " + Thread.currentThread().getId());
+        getDriver().navigate().to("http://www.yandex.com");
+        System.out.println("Yandex Test's Page title is: " + getDriver().getTitle() +" "+ Thread.currentThread().getId());
+        Assert.assertEquals(getDriver().getTitle(), "Yandex");
+        System.out.println("Yandex Test Ended! " + Thread.currentThread().getId());
+    }
+
 }
