@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="5" name="Suite" parallel="tests" preserve-order="true">
+<suite thread-count="1" name="Suite" preserve-order="true" parallel="tests" >
     <test name="FirstTest">
         <parameter name="browser" value="firefox"/>
         <parameter name="platform" value="WINDOWS"/>
