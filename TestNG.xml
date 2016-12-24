@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="3" name="Suite" parallel="tests" >
-    <test name="FirstTest">
-        <parameter name="browser" value="firefox"/>
-        <parameter name="platform" value="WINDOWS"/>
+    <listeners>
+        <listener class-name="WebDriverListener"></listener>
+    </listeners>
+    <test name="Test1">
+        <parameter name="browserName" value="firefox"></parameter>
         <classes>
-            <class name="FirstTest"/>
+            <class name="Test1"/>
         </classes>
     </test> <!-- First Test -->
-    <test name="SecondTest">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="platform" value="WINDOWS"/>
+    <test name="Test2">
+        <parameter name="browserName" value="chrome"></parameter>
         <classes>
-            <class name="SecondTest"/>
+            <class name="Test2"/>
         </classes>
-    </test> <!-- Second Test -->
+    </test> <!-- First Test -->
 </suite> <!-- Suite -->
