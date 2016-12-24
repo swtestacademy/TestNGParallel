@@ -13,22 +13,26 @@ public class DesiredCapsManager {
 
         //Firefox Profile Settings
         if (browser.equals("firefox")) {
-            FirefoxProfile profile = new FirefoxProfile();
-            //Accept Untrusted Certificates
-            profile.setAcceptUntrustedCertificates(true);
-            profile.setAssumeUntrustedCertificateIssuer(false);
-            //Use No Proxy Settings
-            profile.setPreference("network.proxy.type", 0);
-            //Set Firefox profile to capabilities
-            capabilities.setCapability(FirefoxDriver.PROFILE, profile);
+            setFirefoxCapabilities(capabilities,browser);
+        } else {
+            //Set Platform
+            capabilities.setCapability("platform", platform);
+            //Set BrowserName
+            capabilities.setCapability("browserName", browser);
         }
 
-        //Set Platform
-        capabilities.setCapability("platform", platform);
-
-        //Set BrowserName
-        capabilities.setCapability("browserName", browser);
-
         return capabilities;
+    }
+
+    //Set Firefox Capabilities
+    private void setFirefoxCapabilities (DesiredCapabilities capabilities, String browser) {
+        FirefoxProfile profile = new FirefoxProfile();
+        //Accept Untrusted Certificates
+        profile.setAcceptUntrustedCertificates(true);
+        profile.setAssumeUntrustedCertificateIssuer(false);
+        //Use No Proxy Settings
+        profile.setPreference("network.proxy.type", 0);
+        //Set Firefox profile to capabilities
+        capabilities.setCapability(FirefoxDriver.PROFILE, profile);
     }
 }
