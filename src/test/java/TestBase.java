@@ -39,11 +39,11 @@ public class TestBase {
         driver.quit();
     }
 
-    void waitForPageLoad () {
-        ExpectedCondition pageLoads = driver1 -> (Boolean)((JavascriptExecutor) driver1).
+/*    void waitForPageLoad () {
+        ExpectedCondition pageLoads = (WebDriver driver) -> (Boolean)((JavascriptExecutor) driver).
                 executeScript("return document.readyState").equals("complete");
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(pageLoads);
-    }
+    }*/
 
 }

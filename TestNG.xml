@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" name="Suite" preserve-order="true" parallel="tests" >
+<suite thread-count="2" name="Suite" parallel="tests" >
     <test name="FirstTest">
         <parameter name="browser" value="firefox"/>
         <parameter name="platform" value="WINDOWS"/>
@@ -9,7 +9,7 @@
         </classes>
     </test> <!-- First Test -->
     <test name="SecondTest">
-        <parameter name="browser" value="firefox"/>
+        <parameter name="browser" value="chrome"/>
         <parameter name="platform" value="WINDOWS"/>
         <classes>
             <class name="SecondTest"/>
