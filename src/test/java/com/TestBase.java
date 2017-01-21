@@ -1,5 +1,6 @@
 package com;
 
+import com.hepsiburada.JSWaiter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,6 +32,7 @@ public class TestBase {
         //Set & Get ThreadLocal Driver with Browser
         TLDriverFactory.setTLDriver(browser, capabilities);
         driver = TLDriverFactory.getTLDriver().get();
+        JSWaiter.setDriver(driver);
         wait = new WebDriverWait(driver,15);
     }
 
