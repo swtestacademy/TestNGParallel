@@ -19,7 +19,8 @@ public class HBTest extends TestBase {
         driver.navigate().to("http://www.hepsiburada.com/");
         System.out.println("HB Test's Page title is: " + driver.getTitle() + " " + Thread.currentThread().getId());
         System.out.println("HB Test Ended! " + Thread.currentThread().getId());
-        AjaxWaiter.waitUntilJQueryReady(driver,wait);
+        JSWaiter.setDriver(driver);
+        JSWaiter.waitUntilJQueryReady();
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.id("myAccount"))).perform();
         wait.until(ExpectedConditions.elementToBeClickable(By.id("login"))).click();

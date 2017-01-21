@@ -31,7 +31,7 @@ public class TestBase {
         //Set & Get ThreadLocal Driver with Browser
         TLDriverFactory.setTLDriver(browser, capabilities);
         driver = TLDriverFactory.getTLDriver().get();
-        wait = new WebDriverWait(driver,10);
+        wait = new WebDriverWait(driver,15);
     }
 
     @AfterMethod
