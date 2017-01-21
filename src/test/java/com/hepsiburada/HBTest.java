@@ -16,7 +16,7 @@ public class HBTest extends TestBase {
     @Test
     public void HB() throws Exception {
         System.out.println("HB Test Started! " + Thread.currentThread().getId());
-        driver.navigate().to("http://www.com.hepsiburada.com/");
+        driver.navigate().to("http://www.hepsiburada.com/");
         System.out.println("HB Test's Page title is: " + driver.getTitle() + " " + Thread.currentThread().getId());
         System.out.println("HB Test Ended! " + Thread.currentThread().getId());
         AjaxWaiter.waitUntilJQueryReady(driver,wait);
