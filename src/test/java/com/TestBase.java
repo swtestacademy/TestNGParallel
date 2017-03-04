@@ -3,10 +3,7 @@ package com;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 
@@ -21,7 +18,7 @@ public class TestBase {
     private DesiredCapsManager desiredCapsManager = new DesiredCapsManager();
 
     //Do the test setup
-    @BeforeMethod
+    @BeforeTest
     @Parameters(value={"browser","platform"})
     public void setupTest (@Optional String browser, @Optional String platform) throws MalformedURLException {
         //browser="chrome";
@@ -34,7 +31,7 @@ public class TestBase {
         wait = new WebDriverWait(driver,15);
     }
 
-    @AfterMethod
+    @AfterTest
     public void tearDown() throws Exception {
         driver.quit();
     }
