@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
  */
 public class TLDriverFactory {
 
-    private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    private  ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
     public synchronized void setTLDriver (String browser, DesiredCapabilities caps) {
         if (browser.equals("firefox")) {

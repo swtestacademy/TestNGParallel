@@ -24,8 +24,8 @@ public class TestBase {
     @BeforeMethod
     @Parameters(value={"browser","platform"})
     public void setupTest (@Optional String browser, @Optional String platform) throws MalformedURLException {
-        browser="chrome";
-        platform="WINDOWS";
+        //browser="chrome";
+        //platform="WINDOWS";
         //Get DesiredCapabilities
         DesiredCapabilities capabilities = desiredCapsManager.getDesiredCapabilities(browser,platform);
         //Set & Get ThreadLocal Driver with Browser
