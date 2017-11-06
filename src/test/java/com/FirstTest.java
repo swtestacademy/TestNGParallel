@@ -10,7 +10,7 @@ public class FirstTest extends TestBase {
 
     @Test
     public synchronized void GOOGLE0() throws Exception {
-            System.out.println("Yahoo Test Started! " + Thread.currentThread().getId());
+            System.out.println("Google0 Test Started! " + Thread.currentThread().getId());
             driver.navigate().to("http://www.google.com");
             System.out.println("Google0 Test's Page title is: " + driver.getTitle() + " " + Thread.currentThread().getId());
             Assert.assertEquals(driver.getTitle(), "Google");
