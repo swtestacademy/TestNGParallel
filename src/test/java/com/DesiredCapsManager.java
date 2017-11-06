@@ -15,7 +15,7 @@ public class DesiredCapsManager {
 
         //Firefox Profile Settings
         if (browser.equals("firefox")) {
-            setFirefoxCapabilities(capabilities);
+            setFirefoxCapabilities(capabilities,browser);
         } else {
             //Set Platform
             capabilities.setCapability("platform", platform);
@@ -27,7 +27,7 @@ public class DesiredCapsManager {
     }
 
     //Set Firefox Capabilities
-    private void setFirefoxCapabilities (DesiredCapabilities capabilities) {
+    private void setFirefoxCapabilities (DesiredCapabilities capabilities, String browser) {
         FirefoxProfile profile = new FirefoxProfile();
         //Accept Untrusted Certificates
         profile.setAcceptUntrustedCertificates(true);

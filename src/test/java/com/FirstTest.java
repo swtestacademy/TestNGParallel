@@ -8,31 +8,44 @@ import org.testng.annotations.Test;
  */
 public class FirstTest extends TestBase {
 
-    @Test(priority=1)
-    public void YAHOO() throws Exception {
-        System.out.println("Yahoo Test Started! " + Thread.currentThread().getId());
-        driver.navigate().to("http://www.yahoo.com");
-        System.out.println("Yahoo Test's Page title is: " + driver.getTitle() +" "+ Thread.currentThread().getId());
-        Assert.assertEquals(driver.getTitle(), "Yahoo");
-        System.out.println("Yahoo Test Ended! " + Thread.currentThread().getId());
+    @Test
+    public synchronized void GOOGLE0() throws Exception {
+            System.out.println("Yahoo Test Started! " + Thread.currentThread().getId());
+            driver.navigate().to("http://www.google.com");
+            System.out.println("Google0 Test's Page title is: " + driver.getTitle() + " " + Thread.currentThread().getId());
+            Assert.assertEquals(driver.getTitle(), "Google");
+            System.out.println("Google0 Test Ended! " + Thread.currentThread().getId());
+
     }
 
-    @Test(priority=2)
-    public void GOOGLE2() throws Exception {
-        System.out.println("Google2 Test Started! " + Thread.currentThread().getId());
-        driver.navigate().to("http://www.google.com");
-        System.out.println("Google2 Test's Page title is: " + driver.getTitle() +" "+ Thread.currentThread().getId());
-        Assert.assertEquals(driver.getTitle(), "Google");
-        System.out.println("Google2 Test Ended! " + Thread.currentThread().getId());
+    @Test
+    public  void GOOGLE2() throws Exception {
+            System.out.println("Google2 Test Started! " + Thread.currentThread().getId());
+            driver.navigate().to("http://www.google.com");
+            System.out.println("Google2 Test's Page title is: " + driver.getTitle() + " " + Thread.currentThread().getId());
+            Assert.assertEquals(driver.getTitle(), "Google");
+            System.out.println("Google2 Test Ended! " + Thread.currentThread().getId());
+
     }
 
-    @Test(priority=3)
-    public void GOOGLE3() throws Exception {
-        System.out.println("Google3 Test Started! " + Thread.currentThread().getId());
+    @Test
+    public  void GOOGLE3() throws Exception {
+            System.out.println("Google3 Test Started! " + Thread.currentThread().getId());
+            driver.navigate().to("http://www.google.com");
+            System.out.println("Google3 Test's Page title is: " + driver.getTitle() + " " + Thread.currentThread().getId());
+            Assert.assertEquals(driver.getTitle(), "Google");
+            System.out.println("Google3 Test Ended! " + Thread.currentThread().getId());
+
+    }
+
+    @Test
+    public  void GOOGLE4() throws Exception {
+        System.out.println("Google4 Test Started! " + Thread.currentThread().getId());
         driver.navigate().to("http://www.google.com");
-        System.out.println("Google3 Test's Page title is: " + driver.getTitle() +" "+ Thread.currentThread().getId());
+        System.out.println("Google3 Test's Page title is: " + driver.getTitle() + " " + Thread.currentThread().getId());
         Assert.assertEquals(driver.getTitle(), "Google");
         System.out.println("Google3 Test Ended! " + Thread.currentThread().getId());
+
     }
 
 }

@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" name="Suite" parallel="tests" >
-    <test name="com.FirstTest">
-        <parameter name="browser" value="firefox"/>
-        <parameter name="platform" value="WINDOWS"/>
-        <classes>
-            <class name="com.FirstTest"/>
-        </classes>
-    </test> <!-- First Test -->
-    <test name="com.SecondTest">
+<suite thread-count="2" name="Suite" parallel="tests" >
+    <test name="com.FirstTest" parallel="methods" thread-count="2">
         <parameter name="browser" value="chrome"/>
         <parameter name="platform" value="WINDOWS"/>
         <classes>
-            <class name="com.SecondTest"/>
+            <class name="com.FirstTest">
+                <methods>
+                    <include name="GOOGLE0" />
+                    <include name="GOOGLE2" />
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- First Test -->
+    <test name="com.SecondTest"  parallel="methods" thread-count="1">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="platform" value="WINDOWS"/>
+        <classes>
+            <class name="com.SecondTest">
+                <methods>
+                    <include name="GOOGLE1" />
+                </methods>
+            </class>
         </classes>
     </test> <!-- Second Test -->
 </suite> <!-- Suite -->

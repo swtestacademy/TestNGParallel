@@ -12,19 +12,19 @@ public class TLDriverFactory {
 
     private  ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
-    public synchronized void setTLDriver (String browser, DesiredCapabilities caps) {
+    public void setTLDriver (String browser, DesiredCapabilities caps) {
         if (browser.equals("firefox")) {
             tlDriver = ThreadLocal.withInitial(() -> {
-                return new FirefoxDriver(caps); //You can use other driver based on your requirements.
+                return new FirefoxDriver(); //You can use other driver based on your requirements.
             });
         } else if (browser.equals("chrome")) {
             tlDriver = ThreadLocal.withInitial(() -> {
-                return new ChromeDriver(caps); //You can use other driver based on your requirements.
+                return new ChromeDriver(); //You can use other driver based on your requirements.
             });
         }
     }
 
-    public synchronized ThreadLocal<WebDriver> getTLDriver () {
+    public ThreadLocal<WebDriver> getTLDriver () {
         return tlDriver;
     }
 }
