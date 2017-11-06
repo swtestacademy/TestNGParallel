@@ -12,7 +12,7 @@ public class TLDriverFactory {
 
     private  ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
-    public void setTLDriver (String browser, DesiredCapabilities caps) {
+    public synchronized void setTLDriver (String browser, DesiredCapabilities caps) {
         if (browser.equals("firefox")) {
             tlDriver = ThreadLocal.withInitial(() -> {
                 return new FirefoxDriver(); //You can use other driver based on your requirements.
@@ -24,7 +24,7 @@ public class TLDriverFactory {
         }
     }
 
-    public ThreadLocal<WebDriver> getTLDriver () {
+    public synchronized ThreadLocal<WebDriver> getTLDriver () {
         return tlDriver;
     }
 }

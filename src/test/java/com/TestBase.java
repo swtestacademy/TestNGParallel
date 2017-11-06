@@ -22,7 +22,7 @@ public class TestBase {
 
 
 
-  /*  //Do the test setup
+    //Do the test setup
     @BeforeMethod
     @Parameters(value={"browser","platform"})
     public  void setupTest (@Optional String browser, @Optional String platform) throws MalformedURLException {
@@ -30,16 +30,16 @@ public class TestBase {
         //platform="WINDOWS";
         //Get DesiredCapabilities
         DesiredCapabilities capabilities = desiredCapsManager.getDesiredCapabilities(browser,platform);
-        //Set & Get ThreadLocal Driver with Browser
+            //Set & Get ThreadLocal Driver with Browser
             TLDriverFactory.setTLDriver(browser, capabilities);
             driver = TLDriverFactory.getTLDriver().get();
             wait = new WebDriverWait(driver, 15);
 
-    }*/
+    }
 
 
     //Do the test setup
-    @BeforeMethod
+/*    @BeforeMethod
     @Parameters(value={"browser","platform"})
     public  void setupTest (@Optional String browser, @Optional String platform) throws MalformedURLException {
         //Get DesiredCapabilities
@@ -52,10 +52,10 @@ public class TestBase {
 
         wait = new WebDriverWait(driver, 15);
 
-    }
+    }*/
 
     @AfterMethod
-    public  void tearDown() throws Exception {
+    public synchronized void tearDown() throws Exception {
         driver.quit();
         //TLDriverFactory.getTLDriver().remove();
     }
