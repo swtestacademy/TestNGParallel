@@ -10,21 +10,19 @@ import org.openqa.selenium.remote.DesiredCapabilities;
  */
 public class TLDriverFactory {
 
-    private  ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    OptionsManager optionsManager = new OptionsManager();
+    private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
-    public synchronized void setTLDriver (String browser, DesiredCapabilities caps) {
+    public synchronized void setTLDriver (String browser) {
         if (browser.equals("firefox")) {
-            tlDriver = ThreadLocal.withInitial(() -> {
-                return new FirefoxDriver(); //You can use other driver based on your requirements.
-            });
+            tlDriver = ThreadLocal.withInitial(() -> new FirefoxDriver(optionsManager.getFirefoxOptions()));
         } else if (browser.equals("chrome")) {
-            tlDriver = ThreadLocal.withInitial(() -> {
-                return new ChromeDriver(); //You can use other driver based on your requirements.
-            });
+            tlDriver = ThreadLocal.withInitial(() -> new ChromeDriver(optionsManager.getChromeOptions()));
         }
     }
 
     public synchronized ThreadLocal<WebDriver> getTLDriver () {
         return tlDriver;
     }
+
 }
