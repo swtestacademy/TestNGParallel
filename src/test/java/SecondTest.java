@@ -23,5 +23,4 @@ public class SecondTest extends TestBase{
         Assert.assertEquals(getDriver().getTitle(), "Yandex");
         System.out.println("Yandex Test Ended! " + Thread.currentThread().getId());
     }
-
 }

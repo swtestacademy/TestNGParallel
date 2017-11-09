@@ -11,22 +11,19 @@ import org.testng.annotations.Parameters;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by ONUR on 03.12.2016.
- */
 public class TestBase {
 
-    //Declare ThreadLocal Driver for ThreadSafe Tests
+    //Declare ThreadLocal Driver (ThreadLocalMap) for ThreadSafe Tests
     protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 
-    //Do the test setup
     @BeforeMethod
     @Parameters(value={"browser"})
     public void setupTest (String browser) throws MalformedURLException {
         //Set DesiredCapabilities
         DesiredCapabilities capabilities = new DesiredCapabilities();
+
         //Firefox Profile Settings
-       /* if (browser=="firefox") {
+        /*if (browser=="firefox") {
             FirefoxProfile profile = new FirefoxProfile();
             //Accept Untrusted Certificates
             profile.setAcceptUntrustedCertificates(true);
@@ -36,19 +33,27 @@ public class TestBase {
             //Set Firefox profile to capabilities
             capabilities.setCapability(FirefoxDriver.PROFILE, profile);
         }*/
+
         //Set BrowserName
         capabilities.setCapability("browserName", browser);
+
+        //Set Browser to ThreadLocalMap
         driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities));
     }
 
     public WebDriver getDriver() {
+        //Get driver from ThreadLocalMap
         return driver.get();
     }
-
 
     @AfterMethod
     public void tearDown() throws Exception {
         getDriver().quit();
+    }
+
+    @AfterClass void terminate () {
+        //Remove the ThreadLocalMap element
+        driver.remove();
     }
 
 }
