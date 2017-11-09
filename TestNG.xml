@@ -2,15 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="5" name="Suite" parallel="tests">
     <test name="FirstTest">
-        <parameter name="browser" value="firefox"/>
-        <parameter name="platform" value="WINDOWS"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="FirstTest"/>
         </classes>
     </test> <!-- First Test -->
     <test name="SecondTest">
-        <parameter name="browser" value="firefox"/>
-        <parameter name="platform" value="WINDOWS"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="SecondTest"/>
         </classes>

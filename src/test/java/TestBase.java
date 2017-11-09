@@ -17,19 +17,16 @@ import java.net.URL;
 public class TestBase {
 
     //Declare ThreadLocal Driver for ThreadSafe Tests
-    protected ThreadLocal<RemoteWebDriver> driver = null;
+    protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 
     //Do the test setup
     @BeforeMethod
-    @Parameters(value={"browser","platform"})
-    public void setupTest (String browser, String platform) throws MalformedURLException {
-        //Assign driver to a ThreadLocal
-        driver = new ThreadLocal<>();
-
+    @Parameters(value={"browser"})
+    public void setupTest (String browser) throws MalformedURLException {
         //Set DesiredCapabilities
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //Firefox Profile Settings
-        if (browser=="firefox") {
+       /* if (browser=="firefox") {
             FirefoxProfile profile = new FirefoxProfile();
             //Accept Untrusted Certificates
             profile.setAcceptUntrustedCertificates(true);
@@ -38,9 +35,7 @@ public class TestBase {
             profile.setPreference("network.proxy.type", 0);
             //Set Firefox profile to capabilities
             capabilities.setCapability(FirefoxDriver.PROFILE, profile);
-        }
-        //Set Platform
-        capabilities.setCapability("platform", platform);
+        }*/
         //Set BrowserName
         capabilities.setCapability("browserName", browser);
         driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities));
