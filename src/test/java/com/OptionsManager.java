@@ -21,7 +21,7 @@ public class OptionsManager {
         ChromeDriver driver = new ChromeDriver(service, options);*/
     }
 
-    //Set Firefox Options
+    //Get Firefox Options
     public FirefoxOptions getFirefoxOptions () {
         FirefoxOptions options = new FirefoxOptions();
         FirefoxProfile profile = new FirefoxProfile();
