@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 public class OptionsManager {
 
     //Get Chrome Options
-    public ChromeOptions getChromeOptions() {
+    public static ChromeOptions getChromeOptions() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
@@ -22,7 +22,7 @@ public class OptionsManager {
     }
 
     //Get Firefox Options
-    public FirefoxOptions getFirefoxOptions () {
+    public static FirefoxOptions getFirefoxOptions () {
         FirefoxOptions options = new FirefoxOptions();
         FirefoxProfile profile = new FirefoxProfile();
         //Accept Untrusted Certificates

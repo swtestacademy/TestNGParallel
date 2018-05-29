@@ -12,9 +12,7 @@ import java.net.MalformedURLException;
  */
 public class TestBase {
 
-    protected WebDriver driver;
     protected WebDriverWait wait;
-    private TLDriverFactory TLDriverFactory = new TLDriverFactory();
 
     //Do the test setup
     @BeforeMethod
@@ -22,14 +20,12 @@ public class TestBase {
     public void setupTest (@Optional String browser) throws MalformedURLException {
         //Set & Get ThreadLocal Driver with Browser
         TLDriverFactory.setTLDriver(browser);
-        driver = TLDriverFactory.getTLDriver().get();
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(TLDriverFactory.getTLDriver(), 15);
     }
 
     @AfterMethod
     public synchronized void tearDown() throws Exception {
-        driver.quit();
-        TLDriverFactory.getTLDriver().remove();
+        TLDriverFactory.getTLDriver().quit();
     }
 
 }
