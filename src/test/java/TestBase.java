@@ -18,19 +18,7 @@ public class TestBase {
     public void setupTest (String browser) throws MalformedURLException {
         //Set DesiredCapabilities
         DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        //Firefox Profile Settings
-        /*if (browser=="firefox") {
-            FirefoxProfile profile = new FirefoxProfile();
-            //Accept Untrusted Certificates
-            profile.setAcceptUntrustedCertificates(true);
-            profile.setAssumeUntrustedCertificateIssuer(false);
-            //Use No Proxy Settings
-            profile.setPreference("network.proxy.type", 0);
-            //Set Firefox profile to capabilities
-            capabilities.setCapability(FirefoxDriver.PROFILE, profile);
-        }*/
-
+        
         //Set BrowserName
         capabilities.setCapability("browserName", browser);
 
