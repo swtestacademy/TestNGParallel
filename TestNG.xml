@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" name="Suite" parallel="tests" >
     <test name="com.FirstTest" parallel="methods" thread-count="3">
-        <parameter name="browser" value="firefox"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="FirstTest">
                 <methods>
@@ -14,7 +14,7 @@
         </classes>
     </test> <!-- First Test -->
     <test name="com.SecondTest"  parallel="methods" thread-count="2">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="firefox"/>
         <classes>
             <class name="SecondTest">
                 <methods>
