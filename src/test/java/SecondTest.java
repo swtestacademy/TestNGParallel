@@ -4,10 +4,10 @@ import org.testng.annotations.Test;
 /**
  * Created by ONUR on 03.12.2016.
  */
-public class SecondTest extends TestBase{
+public class SecondTest extends BaseTest {
 
     @Test
-    public void GOOGLE4() throws Exception {
+    public void GOOGLE4() {
         System.out.println("Google4 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
         System.out.println("Google4 Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: "+ Thread.currentThread().getId());
@@ -16,7 +16,7 @@ public class SecondTest extends TestBase{
     }
 
     @Test
-    public void YANDEX() throws Exception {
+    public void YANDEX() {
         System.out.println("Yandex Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.yandex.com");
         System.out.println("Yandex Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: " + Thread.currentThread().getId());
