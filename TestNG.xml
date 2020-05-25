@@ -9,6 +9,11 @@
                     <include name="GOOGLE1" />
                     <include name="GOOGLE2" />
                     <include name="GOOGLE3" />
+                    <include name="GOOGLE5" />
+                    <include name="GOOGLE6" />
+                    <include name="GOOGLE7" />
+                    <include name="GOOGLE8" />
+                    <include name="GOOGLE9" />
                 </methods>
             </class>
         </classes>

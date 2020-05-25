@@ -17,7 +17,7 @@ public class BaseTest {
     @Parameters(value={"browser"})
     public void setup (String browser) throws MalformedURLException {
         //Set Browser to ThreadLocalMap
-        driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilityFactory.getCapabilities(browser)));
+        driver.set(new RemoteWebDriver(new URL("http://192.168.64.3:30001/wd/hub"), capabilityFactory.getCapabilities(browser)));
     }
 
     public WebDriver getDriver() {
